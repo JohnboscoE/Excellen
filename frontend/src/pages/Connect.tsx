@@ -23,13 +23,16 @@ const Connect: React.FC<ConnectProps> = ({ onConnect }) => {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:5000/api/trades/account", {
-        headers: {
-          "x-api-key": apiKey,
-          "x-secret-key": secretKey,
-          "x-passphrase": passphrase,
+      const res = await fetch(
+        "https://excellen-production.up.railway.app/api/trades/account",
+        {
+          headers: {
+            "x-api-key": apiKey,
+            "x-secret-key": secretKey,
+            "x-passphrase": passphrase,
+          },
         },
-      });
+      );
       const data = await res.json();
       if (data.code === "00000") {
         onConnect({ apiKey, secretKey, passphrase });

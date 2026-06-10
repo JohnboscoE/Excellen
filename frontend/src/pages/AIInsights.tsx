@@ -28,7 +28,7 @@ const AIInsights: React.FC<AIInsightsProps> = ({ credentials }) => {
       const analytics = await fetchAnalytics(credentials);
 
       const response = await fetch(
-        "http://localhost:5000/api/insights/generate",
+        "https://excellen-production.up.railway.app/api/insights/generate",
         {
           method: "POST",
           headers: {
