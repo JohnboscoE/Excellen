@@ -1,5 +1,5 @@
 import React from "react";
-import { LogOut, Wifi } from "lucide-react";
+import { LogOut } from "lucide-react";
 
 interface NavbarProps {
   onDisconnect: () => void;
