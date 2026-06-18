@@ -1,4 +1,6 @@
-# ExcelLens
+  ## Verified Usage
+
+Real logs from the live Railway deployment showing the backend processing authenticated requests in production: [docs/usage-logs.md](./docs/usage-logs.md)                                                                                                                                           # ExcelLens
 
 > A trading execution analyzer and performance dashboard built on the Bitget API.
 
@@ -68,4 +70,4 @@ PORT=5000
 
 Built for the **Trading Infrastructure** track of the Bitget Hackathon 2026.
 
-ExcelLens is infrastructure tooling for traders — it sits on top of Bitget's API and surfaces execution quality metrics that help traders understand and improve their performance.
+ExcelLens is infrastructure tooling for traders — it sits on top of Bitget's API and surfaces execution quality metrics that help traders understand and improve their performance.                                                                                                                                                                
