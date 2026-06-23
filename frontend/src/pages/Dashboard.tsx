@@ -52,7 +52,7 @@ const Dashboard: React.FC<DashboardProps> = ({ credentials }) => {
   }, [credentials]);
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 min-w-0 overflow-x-hidden">
       {loading ?
         <p className="text-muted text-sm">Loading dashboard…</p>
       : <>
