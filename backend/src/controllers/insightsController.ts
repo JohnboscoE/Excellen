@@ -1,12 +1,7 @@
 import { Request, Response } from 'express';
-import Anthropic from '@anthropic-ai/sdk';
 
 export const generateInsights = async (req: Request, res: Response) => {
   try {
-    const client = new Anthropic({
-      apiKey: process.env.ANTHROPIC_API_KEY!,
-    });
-
     const { analytics } = req.body;
 
     const prompt = `
@@ -36,14 +31,31 @@ Trader data:
 Return ONLY the JSON object. No markdown, no explanation, no backticks.
     `;
 
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 1000,
-      messages: [{ role: 'user', content: prompt }],
-    });
+    const response = await fetch(
+      'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.ALIBABA_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'qwen-plus',
+          messages: [{ role: 'user', content: prompt }],
+          max_tokens: 1000,
+        }),
+      }
+    );
 
-    const text = (message.content[0] as any).text;
+    if (!response.ok) {
+      const err = await response.text();
+      throw new Error(`Qwen API error: ${response.status} ${err}`);
+    }
+
+    const data = await response.json();
+    const text = data.choices[0].message.content;
     const parsed = JSON.parse(text);
+
     res.json({ code: '00000', data: parsed });
   } catch (error: any) {
     console.error('Insights error:', error.message);
