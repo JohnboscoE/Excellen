@@ -53,6 +53,7 @@ const AIInsights: React.FC<AIInsightsProps> = ({ credentials }) => {
       setLoading(false);
     }
   };
+
   const iconMap = {
     positive: <TrendingUp size={16} className="text-positive" />,
     warning: <AlertTriangle size={16} className="text-negative" />,
@@ -78,7 +79,7 @@ const AIInsights: React.FC<AIInsightsProps> = ({ credentials }) => {
         <div>
           <h1 className="text-2xl font-bold text-white">AI Insights</h1>
           <p className="text-muted text-sm mt-1">
-            Claude-powered analysis of your execution performance
+            Qwen-powered analysis of your execution performance
           </p>
         </div>
         <button
@@ -106,9 +107,17 @@ const AIInsights: React.FC<AIInsightsProps> = ({ credentials }) => {
               No insights yet
             </h3>
             <p className="text-muted text-sm mt-1 max-w-sm">
-              Click "Generate Insights" to get an AI-powered breakdown of your
+              Click "Generate Insights" to get a Qwen-powered breakdown of your
               trading performance and execution quality.
             </p>
+          </div>
+          <div className="flex items-center gap-2 bg-surface2 border border-border rounded-lg px-3 py-2 mt-2">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
+              Powered by
+            </span>
+            <span className="text-xs font-semibold text-white">
+              Alibaba Cloud · Qwen
+            </span>
           </div>
         </div>
       )}
@@ -126,6 +135,13 @@ const AIInsights: React.FC<AIInsightsProps> = ({ credentials }) => {
       {/* Results */}
       {generated && !loading && (
         <>
+          {/* Model badge */}
+          <div className="flex items-center gap-2">
+            <span className="bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+              Alibaba Cloud · Qwen
+            </span>
+          </div>
+
           {/* Summary */}
           <div className="bg-surface border border-accent/20 rounded-xl p-5">
             <p className="text-muted text-xs uppercase tracking-wider mb-2 font-medium">
