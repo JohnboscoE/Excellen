@@ -11,7 +11,7 @@ ExcelLens connects to your Bitget account and gives you a clear picture of your 
 - **Dashboard** — Real-time overview of PnL, win rate, volume, fees, best/worst assets
 - **Trades** — Full trade history with filtering by symbol, side, and type
 - **Analytics** — Deep per-asset breakdown with PnL, win rate, and fee analysis charts
-- **AI Insights** — Qwen-powered analysis of your execution patterns and actionable recommendations
+- **AI Insights** — Claude-powered analysis of your execution patterns and actionable recommendations
 - **Demo Mode** — Try the full app without a Bitget account
 - **Multi-user** — Bring your own API keys, nothing is stored server-side
 
@@ -19,7 +19,7 @@ ExcelLens connects to your Bitget account and gives you a clear picture of your 
 
 - **Frontend:** React + TypeScript + Tailwind CSS + Recharts
 - **Backend:** Node.js + Express + TypeScript
-- **AI:** Alibaba Cloud Qwen (`qwen-plus`)
+- **AI:** Anthropic Claude (`claude-sonnet-4-6`)
 - **Exchange:** Bitget REST API
 
 ## Getting Started
@@ -27,7 +27,7 @@ ExcelLens connects to your Bitget account and gives you a clear picture of your 
 ### Prerequisites
 - Node.js 18+
 - Bitget account with API keys (read-only recommended)
-- Alibaba Cloud API key (DashScope)
+- Anthropic API key
 
 ### Installation
 
@@ -54,15 +54,15 @@ Create `backend/.env`:
 BITGET_API_KEY=your_bitget_api_key
 BITGET_SECRET_KEY=your_bitget_secret_key
 BITGET_PASSPHRASE=your_bitget_passphrase
-ALIBABA_API_KEY=your_alibaba_cloud_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
 PORT=5000
 ```
 
 ## AI Insights
 
-ExcelLens uses **Alibaba Cloud Qwen** (`qwen-plus`) via the DashScope OpenAI-compatible endpoint to analyze your trade history and surface execution quality insights. The model receives your aggregated analytics — win rate, PnL, fees, asset breakdown — and returns structured insights with specific, actionable recommendations.
+ExcelLens uses **Anthropic Claude** (`claude-sonnet-4-6`) to analyze your trade history and surface execution quality insights. The model receives your aggregated analytics — win rate, PnL, fees, asset breakdown — and returns structured insights with specific, actionable recommendations.
 
-The AI layer runs entirely on the backend. Your trade data is sent to Qwen only when you explicitly click "Generate Insights" and is never stored or logged.
+The AI layer runs entirely on the backend. Your trade data is sent to Claude only when you explicitly click "Generate Insights" and is never stored or logged.
 
 ## Security
 
