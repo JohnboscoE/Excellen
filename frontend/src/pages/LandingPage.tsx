@@ -318,9 +318,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
             >
               AI Insights
             </a>
-            <span className="bg-accent/10 border border-accent/30 text-accent text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">
-              Bitget Hackathon 2026
-            </span>
           </div>
 
           <button
@@ -710,9 +707,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
               <span className="text-background text-[10px] font-black">EL</span>
             </div>
             <span className="text-muted text-xs">© 2026 ExcelLens</span>
-            <span className="bg-accent/10 border border-accent/20 text-accent text-[9px] font-bold tracking-widest px-2 py-0.5 rounded-full uppercase">
-              Bitget Hackathon 2026
-            </span>
           </div>
           <div className="flex items-center gap-5">
             <a
