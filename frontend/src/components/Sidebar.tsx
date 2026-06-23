@@ -7,7 +7,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate }) => {
-  // Store the component definitions directly instead of instantiated elements
   const links = [
     {
       id: "dashboard",

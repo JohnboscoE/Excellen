@@ -3,7 +3,6 @@ import {
   TrendingUp,
   Activity,
   Shield,
-  Zap,
   BarChart2,
   Brain,
   ArrowRight,
@@ -15,7 +14,6 @@ interface LandingPageProps {
   onDemo: () => void;
 }
 
-// ── Animated counter hook ──────────────────────────────────────────────────
 function useCounter(target: number, duration = 1600, decimals = 0) {
   const [value, setValue] = useState(0);
   const started = useRef(false);
@@ -48,7 +46,6 @@ function useCounter(target: number, duration = 1600, decimals = 0) {
   return { value, ref };
 }
 
-// ── Stat ticker item ───────────────────────────────────────────────────────
 function TickerStat({
   label,
   prefix = "",
@@ -81,7 +78,6 @@ function TickerStat({
   );
 }
 
-// ── Feature card ──────────────────────────────────────────────────────────
 function FeatureCard({
   icon,
   title,
@@ -102,7 +98,6 @@ function FeatureCard({
   );
 }
 
-// ── Step row ──────────────────────────────────────────────────────────────
 function StepRow({
   num,
   title,
@@ -125,7 +120,6 @@ function StepRow({
   );
 }
 
-// ── AI insight row ────────────────────────────────────────────────────────
 function InsightRow({
   tag,
   tagColor,
@@ -147,7 +141,6 @@ function InsightRow({
   );
 }
 
-// ── Mini sparkline SVG ────────────────────────────────────────────────────
 function Sparkline() {
   const pts = [10, 28, 18, 42, 35, 55, 48, 62, 58, 75, 68, 88, 80, 95];
   const w = 200;
@@ -182,7 +175,6 @@ function Sparkline() {
   );
 }
 
-// ── Mini bar chart SVG ────────────────────────────────────────────────────
 function BarChart() {
   const data = [
     { label: "BTC", val: 88, color: "#F59E0B" },
@@ -212,7 +204,6 @@ function BarChart() {
   );
 }
 
-// ── Dashboard preview mockup ───────────────────────────────────────────────
 function DashboardPreview() {
   const stats = [
     { label: "Total PnL", value: "+$4,218", color: "text-positive" },
@@ -223,7 +214,6 @@ function DashboardPreview() {
 
   return (
     <div className="bg-surface border border-border rounded-xl overflow-hidden">
-      {/* Window chrome */}
       <div className="bg-surface2 border-b border-border px-4 py-2.5 flex items-center gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-negative/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-accent/70" />
@@ -234,7 +224,6 @@ function DashboardPreview() {
       </div>
 
       <div className="p-4 space-y-3">
-        {/* Stat row */}
         <div className="grid grid-cols-4 gap-2">
           {stats.map((s) => (
             <div
@@ -249,7 +238,6 @@ function DashboardPreview() {
           ))}
         </div>
 
-        {/* Charts row */}
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-surface2 border border-border rounded-lg p-3">
             <div className="text-muted text-[10px] mb-2">Cumulative PnL</div>
@@ -261,7 +249,6 @@ function DashboardPreview() {
           </div>
         </div>
 
-        {/* Trades table stub */}
         <div className="bg-surface2 border border-border rounded-lg p-3">
           <div className="text-muted text-[10px] mb-2">Recent Trades</div>
           {[
@@ -298,11 +285,9 @@ function DashboardPreview() {
   );
 }
 
-// ── Main landing page component ────────────────────────────────────────────
 const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
   return (
     <div className="bg-background min-h-screen text-white overflow-x-hidden">
-      {/* ── NAV ── */}
       <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
@@ -333,6 +318,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
             >
               AI Insights
             </a>
+            <span className="bg-accent/10 border border-accent/30 text-accent text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">
+              Bitget Hackathon 2026
+            </span>
           </div>
 
           <button
@@ -344,9 +332,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </nav>
 
-      {/* ── HERO ── */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-12 text-center">
-        {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-surface border border-border rounded-full px-4 py-1.5 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-positive animate-pulse" />
           <span className="text-muted text-xs font-medium">
@@ -362,7 +348,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
 
         <p className="text-muted text-lg max-w-xl mx-auto mb-8 leading-relaxed">
           ExcelLens connects to your Bitget account and surfaces the execution
-          quality metrics your exchange doesn't show you, powered by AI
+          quality metrics your exchange doesn't show you — powered by AI
           analysis.
         </p>
 
@@ -381,7 +367,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
           </button>
         </div>
 
-        {/* Live metrics ticker */}
         <div className="inline-flex bg-surface border border-border rounded-xl overflow-hidden mb-2">
           <TickerStat
             label="Win Rate"
@@ -409,12 +394,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </p>
       </section>
 
-      {/* ── DASHBOARD PREVIEW ── */}
       <section className="max-w-4xl mx-auto px-6 pb-20">
         <DashboardPreview />
       </section>
 
-      {/* ── FEATURES ── */}
       <section
         id="features"
         className="max-w-6xl mx-auto px-6 py-16 border-t border-border"
@@ -432,7 +415,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           <FeatureCard
             icon={<BarChart2 size={16} />}
             title="Dashboard"
@@ -454,7 +437,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
             desc="Claude-powered analysis of your execution patterns with concrete, actionable recommendations."
           />
           <FeatureCard
-            icon={<Zap size={16} />}
+            icon={
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-14h-9l1-8z" />
+              </svg>
+            }
             title="Demo Mode"
             desc="Try the full dashboard with realistic sample data — no Bitget account or API keys required."
           />
@@ -466,7 +461,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
       <section id="how" className="border-t border-border py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
@@ -508,7 +502,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
               </div>
             </div>
 
-            {/* API flow visual */}
             <div className="bg-surface border border-border rounded-xl p-5 space-y-3">
               <p className="text-accent text-[10px] font-bold uppercase tracking-widest mb-4">
                 Live request flow
@@ -568,7 +561,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </section>
 
-      {/* ── AI INSIGHTS ── */}
       <section id="ai" className="border-t border-border py-16 bg-surface">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
@@ -603,7 +595,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
               </div>
             </div>
 
-            {/* AI card */}
             <div className="bg-background border border-border rounded-xl overflow-hidden">
               <div className="bg-surface2 border-b border-border px-4 py-3 flex items-center gap-2">
                 <Brain size={13} className="text-accent" />
@@ -669,7 +660,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </section>
 
-      {/* ── DEMO BANNER ── */}
       <section className="border-t border-border py-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-surface border border-accent/20 rounded-xl px-8 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
@@ -692,7 +682,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
       <section className="border-t border-border py-20 text-center">
         <div className="max-w-lg mx-auto px-6">
           <h2 className="text-4xl font-black tracking-tight mb-3">
@@ -714,7 +703,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
       <footer className="border-t border-border py-6">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -722,6 +710,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onConnect, onDemo }) => {
               <span className="text-background text-[10px] font-black">EL</span>
             </div>
             <span className="text-muted text-xs">© 2026 ExcelLens</span>
+            <span className="bg-accent/10 border border-accent/20 text-accent text-[9px] font-bold tracking-widest px-2 py-0.5 rounded-full uppercase">
+              Bitget Hackathon 2026
+            </span>
           </div>
           <div className="flex items-center gap-5">
             <a
