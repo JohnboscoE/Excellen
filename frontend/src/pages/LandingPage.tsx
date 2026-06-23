@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   TrendingUp,
-  DollarSign,
   Activity,
-  Award,
   Shield,
   Zap,
   BarChart2,
